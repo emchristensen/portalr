@@ -47,7 +47,7 @@ download_observations <- function(base_folder = "~", version = "latest")
                          page_content)
     match_text <- regmatches(page_content, match_pos)
 
-    if (length(match_text) != 1)
+    if (length(match_text) != 1 || length(match_text[[1]]) <= 0)
     {
       stop("Wasn't able to parse Zenodo for the download link.", call. = FALSE)
     }
@@ -254,11 +254,14 @@ load_data <- function(path = "~", download_if_missing = TRUE, clean = TRUE)
   if (clean)
   {
     data_tables$rodent_data <- clean_data(data_tables$rodent_data,
-                                          data_tables$trapping_table)
+                                          data_tables$trapping_table,
+                                          by = c("month", "day", "year", "period", "plot"))
     data_tables$newmoons_table <- clean_data(data_tables$newmoons_table,
-                                             data_tables$trapping_table)
+                                             data_tables$trapping_table,
+                                             by = "period")
     data_tables$plots_table <- clean_data(data_tables$plots_table,
-                                          data_tables$trapping_table)
+                                          data_tables$trapping_table,
+                                          by = c("year", "month", "plot"))
     data_tables$trapping_table <- dplyr::filter(data_tables$trapping_table,
                                                 qcflag == 1)
   }
