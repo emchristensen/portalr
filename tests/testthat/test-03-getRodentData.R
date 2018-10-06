@@ -98,64 +98,64 @@ test_that("energy returns expected results", {
   expect_equal(dim(energy_filled), dim(energy_notfilled))
   expect_equal(energy_filled$species, energy_notfilled$species)
   expect_equal(floor(dplyr::filter(energy_notfilled, period == 447, plot == 3,
-                                   species == "BA")$energy), 9)
+                                   species == "BA")$energy), 51)
   expect_equal(floor(dplyr::filter(energy_filled, period == 447, plot == 3,
-                                   species == "BA")$energy), 14)
+                                   species == "BA")$energy), 82)
 })
 
 test_that("abundance filters at the plot level correctly", {
   incomplete_plots <- abundance(path = portal_data_path, level = "plot",
                                 min_plots = 1, min_traps = 1, effort = TRUE) %>%
-    dplyr::filter(ntraps < 1)
+    dplyr::filter(ntraps < 1, period <= 463)
   expect_equal(NROW(incomplete_plots), 238)
 
   incomplete_plots <- abundance(path = portal_data_path, level = "plot",
                                 min_plots = 24, min_traps = 49, effort = TRUE) %>%
-    dplyr::filter(ntraps < 1)
+    dplyr::filter(ntraps < 1, period <= 463)
   expect_equal(NROW(incomplete_plots), 0)
 
   incomplete_plots <- abundance(path = portal_data_path, level = "plot", na_drop = TRUE,
                                 min_plots = 1, min_traps = 1, effort = TRUE) %>%
-    dplyr::filter(ntraps < 1)
+    dplyr::filter(ntraps < 1, period <= 463)
   expect_equal(NROW(incomplete_plots), 0)
 
   incomplete_plots <- abundance(path = portal_data_path, level = "plot", na_drop = TRUE,
                                 min_plots = 1, min_traps = 47, effort = TRUE) %>%
-    dplyr::filter(ntraps < 47)
+    dplyr::filter(ntraps < 47, period <= 463)
   expect_equal(NROW(incomplete_plots), 0)
 
   incomplete_plots <- abundance(path = portal_data_path, level = "plot", na_drop = TRUE,
                                 min_plots = 1, min_traps = 49, effort = TRUE) %>%
-    dplyr::filter(ntraps < 49)
+    dplyr::filter(ntraps < 49, period <= 463)
   expect_equal(NROW(incomplete_plots), 0)
 
   incomplete_plots <- abundance(path = portal_data_path, level = "plot", na_drop = TRUE,
                                 min_plots = 12, min_traps = 1, effort = TRUE) %>%
-    dplyr::filter(ntraps < 1)
+    dplyr::filter(ntraps < 1, period <= 463)
   expect_equal(NROW(incomplete_plots), 0)
 
   incomplete_plots <- abundance(path = portal_data_path, level = "plot", na_drop = TRUE,
                                 min_plots = 12, min_traps = 47, effort = TRUE) %>%
-    dplyr::filter(ntraps < 47)
+    dplyr::filter(ntraps < 47, period <= 463)
   expect_equal(NROW(incomplete_plots), 0)
 
   incomplete_plots <- abundance(path = portal_data_path, level = "plot", na_drop = TRUE,
                                 min_plots = 12, min_traps = 49, effort = TRUE) %>%
-    dplyr::filter(ntraps < 49)
+    dplyr::filter(ntraps < 49, period <= 463)
   expect_equal(NROW(incomplete_plots), 0)
 
   incomplete_plots <- abundance(path = portal_data_path, level = "plot", na_drop = TRUE,
                                 min_plots = 24, min_traps = 1, effort = TRUE) %>%
-    dplyr::filter(ntraps < 1)
+    dplyr::filter(ntraps < 1, period <= 463)
   expect_equal(NROW(incomplete_plots), 0)
 
   incomplete_plots <- abundance(path = portal_data_path, level = "plot", na_drop = TRUE,
                                 min_plots = 24, min_traps = 47, effort = TRUE) %>%
-    dplyr::filter(ntraps < 47)
+    dplyr::filter(ntraps < 47, period <= 463)
   expect_equal(NROW(incomplete_plots), 0)
 
   incomplete_plots <- abundance(path = portal_data_path, level = "plot", na_drop = TRUE,
                                 min_plots = 24, min_traps = 49, effort = TRUE) %>%
-    dplyr::filter(ntraps < 49)
+    dplyr::filter(ntraps < 49, period <= 463)
   expect_equal(NROW(incomplete_plots), 0)
 })

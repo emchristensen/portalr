@@ -1,5 +1,5 @@
 {
-"title": "Creates useful summaries of the Portal data",
+"title": "Create Useful Summaries of the Portal Data",
 "creators": [
     {
       "affiliation": "University of Florida",
@@ -8,8 +8,8 @@
     },
     {
       "affiliation": "University of Florida",
-      "name": "Ellen K. Bledsoe",
-      "orcid": "0000-0002-3629-7235"
+      "name": "Hao Ye",
+      "orcid": "0000-0002-8630-1458"
     },
     {
       "affiliation": "University of Florida",
@@ -18,18 +18,18 @@
     },
     {
       "affiliation": "University of Florida",
-      "name": "Renata Diaz",
-      "orcid": "0000-0003-0803-4734"
-    },
-    {
-      "affiliation": "University of Florida",
-      "name": "S. K. Morgan Ernest",
-      "orcid": "0000-0002-6026-8530"
-    },
-    {
-      "affiliation": "University of Florida",
       "name": "Juniper L. Simonis",
       "orcid": "0000-0001-9798-0460"
+    },
+    {
+      "affiliation": "University of Florida",
+      "name": "Ellen K. Bledsoe",
+      "orcid": "0000-0002-3629-7235"
+    },
+    {
+      "affiliation": "University of Florida",
+      "name": "Renata Diaz",
+      "orcid": "0000-0003-0803-4734"
     },
     {
       "affiliation": "University of Florida",
@@ -41,17 +41,17 @@
       "name": "Ethan P. White",
       "orcid": "0000-0001-6728-7745"
     },
-	{
+    {
       "affiliation": "University of Florida",
-      "name": "Hao Ye",
-      "orcid": "0000-0002-8630-1458"
+      "name": "S. K. Morgan Ernest",
+      "orcid": "0000-0002-6026-8530"
     }
 ],
-    "description": "This package contains functions for downloading the latest version of the Portal data and to generate summaries of the rodent, plant, ant, and weather data. ",
+    "description": "Download and generate summaries for the rodent, plant, ant, and weather data from the Portal Project. Portal is a long-term (and ongoing) experimental monitoring site in the Chihuahua desert. The raw data files can be found at https://github.com/weecology/portalData.",
     "keywords": [
     "ecology",
     "time-series",
-    "long-term",
+    "long-term"
   ],
     "access_right": "open",
     "license": "mit-license",

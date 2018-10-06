@@ -1,7 +1,8 @@
-CONTRIBUTING.md
-.travis.yml
+^LICENSE\.md$
+^CONTRIBUTING\.md$
+^CODE_OF_CONDUCT\.md$
+^\.travis\.yml$
+^\.zenodo\.json$
+^README\.Rmd$
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^.zenodo.json
-^README\.Rmd$
-^README-.*\.png$

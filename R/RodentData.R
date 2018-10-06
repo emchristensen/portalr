@@ -86,10 +86,13 @@ make_level_data <- function(plot_data, trapping_table, level, output,
   # set data for incomplete censuses to NA
   incomplete <- find_incomplete_censuses(trapping_table, min_plots, min_traps)
 
-  level_data <- level_data %>%
-    dplyr::mutate(n = replace(n, period %in% incomplete$period, NA),
-                  ntraps = replace(ntraps, period %in% incomplete$period, NA),
-                  nplots = replace(nplots, period %in% incomplete$period, NA))
+  if (NROW(incomplete) > 0)
+  {
+    level_data <- level_data %>%
+      dplyr::mutate(n = replace(n, period %in% incomplete$period, NA),
+                    ntraps = replace(ntraps, period %in% incomplete$period, NA),
+                    nplots = replace(nplots, period %in% incomplete$period, NA))
+  }
 
   if (level == "plot")
   {
@@ -257,8 +260,9 @@ get_rodent_data <- function(path = "~", clean = TRUE, level = "Site",
 #' @param ... arguments passed to \code{\link{get_rodent_data}}
 #'
 #' @examples
+#' \donttest{
 #' abundance("repo")
-#'
+#' }
 #' @export
 #'
 abundance <- function(...) {
@@ -272,8 +276,9 @@ abundance <- function(...) {
 #' @inheritParams abundance
 #'
 #' @examples
+#' \donttest{
 #' biomass("repo")
-#'
+#' }
 #' @export
 #'
 biomass <- function(...) {
@@ -284,13 +289,14 @@ biomass <- function(...) {
 #' @rdname get_rodent_data
 #'
 #' @description * \code{energy()} generates a table of rodent energy
-#'   (computed as biomass ^ 0.75)
+#'   (computed as 5.69 * (biomass ^ 0.75) after White et al 2004)
 #'
 #' @inheritParams abundance
 #'
 #' @examples
+#' \donttest{
 #' energy("repo")
-#'
+#' }
 #' @export
 #'
 energy <- function(...) {
